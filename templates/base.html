@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1.0">
+    <title>To-do app</title>
+</head>
+
+<body>
+    <h1>To-Do App</h1>
+
+
+<div>
+    <table>
+     <tr>
+        <th>Task</th>
+        <th>Email</th>
+        <th>Priority</th>
+        <th>Actions</th>
+      </tr>
+
+        {% for task in to_do %}
+        <tr>
+            <td>{{ task.task }}</td>
+            <td>{{ task.email }}</td>
+            <td>{{ task.priority }}</td>
+            <td>
+                <a href="">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+ <div class="form">
+        <form action="/submit" method="POST">
+            <input type="text" name="task" id="task" placeholder="Enter a task">
+            <input type="text" name="email" id="email" placeholder="Enter email address">
+            <select name="priority">
+      <option value="Blank">Priority:</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+            </select>
+            <input type="submit" value="Add Task">
+        </form>
+ </div>
+
+</body>
+</html>
+
